@@ -1,6 +1,6 @@
 #!/system/bin/sh
 #
-# LegionOS A/B OTA Postinstall Script
+# deluxeOS A/B OTA Postinstall Script
 #
 
 /postinstall/system/bin/backuptool_ab.sh backup

@@ -1,4 +1,4 @@
-PRODUCT_BRAND ?= LegionOS
+PRODUCT_BRAND ?= deluxeOS
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
@@ -20,40 +20,40 @@ endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/legion/prebuilt/common/bin/backuptool.sh:$(TARGET_COPY_OUT_SYSTEM)/install/bin/backuptool.sh \
-    vendor/legion/prebuilt/common/bin/backuptool.functions:$(TARGET_COPY_OUT_SYSTEM)/install/bin/backuptool.functions \
-    vendor/legion/prebuilt/common/bin/50-legion.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-legion.sh
+    vendor/deluxe/prebuilt/common/bin/backuptool.sh:$(TARGET_COPY_OUT_SYSTEM)/install/bin/backuptool.sh \
+    vendor/deluxe/prebuilt/common/bin/backuptool.functions:$(TARGET_COPY_OUT_SYSTEM)/install/bin/backuptool.functions \
+    vendor/deluxe/prebuilt/common/bin/50-deluxe.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-deluxe.sh
 
 ifneq ($(AB_OTA_PARTITIONS),)
 PRODUCT_COPY_FILES += \
-    vendor/legion/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
-    vendor/legion/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
-    vendor/legion/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
+    vendor/deluxe/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
+    vendor/deluxe/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
+    vendor/deluxe/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
 endif
 
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
-    vendor/legion/config/permissions/backup.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/backup.xml
+    vendor/deluxe/config/permissions/backup.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/backup.xml
 
 # Flipendo
 PRODUCT_COPY_FILES += \
-    vendor/legion/config/permissions/pixel_experience_2020.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel_experience_2020.xml
+    vendor/deluxe/config/permissions/pixel_experience_2020.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel_experience_2020.xml
 
-# Legion-specific broadcast actions whitelist
+# deluxe-specific broadcast actions whitelist
 PRODUCT_COPY_FILES += \
-    vendor/legion/config/permissions/legion-sysconfig.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/legion-sysconfig.xml
+    vendor/deluxe/config/permissions/deluxe-sysconfig.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/deluxe-sysconfig.xml
 
-# Copy all Legion-specific init rc files
-$(foreach f,$(wildcard vendor/legion/prebuilt/common/etc/init/*.rc),\
+# Copy all deluxe-specific init rc files
+$(foreach f,$(wildcard vendor/deluxe/prebuilt/common/etc/init/*.rc),\
 	$(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/etc/init/$(notdir $f)))
 
 # Copy over added mimetype supported in libcore.net.MimeUtils
 PRODUCT_COPY_FILES += \
-    vendor/legion/prebuilt/common/lib/content-types.properties:$(TARGET_COPY_OUT_SYSTEM)/lib/content-types.properties
+    vendor/deluxe/prebuilt/common/lib/content-types.properties:$(TARGET_COPY_OUT_SYSTEM)/lib/content-types.properties
 
 # Enable Android Beam on all targets
 PRODUCT_COPY_FILES += \
-    vendor/legion/config/permissions/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml
+    vendor/deluxe/config/permissions/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -68,10 +68,10 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.control_privapp_permissions=log
 
 # Include AOSP audio files
-include vendor/legion/config/aosp_audio.mk
+include vendor/deluxe/config/aosp_audio.mk
 
-# Include Legion audio files
-include vendor/legion/config/legion_audio.mk
+# Include deluxe audio files
+include vendor/deluxe/config/deluxe_audio.mk
 
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
@@ -94,7 +94,7 @@ PRODUCT_PACKAGES += \
     OmniJaws
 
 # Updater
-ifeq ($(LEGION_BUILD_TYPE), OFFICIAL)
+ifeq ($(DELUXE_BUILD_TYPE), ORIGINAL)
 PRODUCT_PACKAGES += \
     Updater
 endif
@@ -108,7 +108,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     QuickAccessWallet
 
-# Extra tools in Legion
+# Extra tools in deluxe
 PRODUCT_PACKAGES += \
     7z \
     awk \
@@ -189,21 +189,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI
 
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/legion/overlay
-DEVICE_PACKAGE_OVERLAYS += vendor/legion/overlay/common
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/deluxe/overlay
+DEVICE_PACKAGE_OVERLAYS += vendor/deluxe/overlay/common
 
 #Uncatogerised
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
--include vendor/legion/config/partner_gms.mk
+-include vendor/deluxe/config/partner_gms.mk
 
 # Versioning
--include vendor/legion/config/version.mk
+-include vendor/deluxe/config/version.mk
 
 # Bootanimation
--include vendor/legion/bootanimation/bootanimation.mk
+-include vendor/deluxe/bootanimation/bootanimation.mk
 
 # Gapps/faceunlock
-ifeq ($(LEGION_BUILD_TYPE), OFFICIAL)
+ifeq ($(DELUXE_BUILD_TYPE), ORIGINAL)
 $(call inherit-product-if-exists, external/motorola/faceunlock/config.mk)
 ifeq ($(WITH_GAPPS), true)
 -include vendor/google/gms/gms-vendor.mk
@@ -217,4 +217,4 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.sf.blurs_are_expensive=1
 
 # Include Vendor Parts
--include vendor/LegionParts/parts.mk
+-include vendor/deluxeux/parts.mk

@@ -1,5 +1,5 @@
-# Inherit common mobile Legion stuff
-$(call inherit-product, vendor/legion/config/common.mk)
+# Inherit common mobile deluxe stuff
+$(call inherit-product, vendor/deluxe/config/common.mk)
 
 # Default notification/alarm sounds
 PRODUCT_PRODUCT_PROPERTIES += \

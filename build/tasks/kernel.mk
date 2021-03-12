@@ -267,7 +267,7 @@ endef
 # $(3): mount point
 # $(4): staging dir
 # Depmod requires a well-formed kernel version so 0.0 is used as a placeholder.
-define build-image-kernel-modules-legion
+define build-image-kernel-modules-deluxe
     rm -rf $(2)/lib/modules
     mkdir -p $(2)/lib/modules
     cp $(1) $(2)/lib/modules/
@@ -319,7 +319,7 @@ $(TARGET_PREBUILT_INT_KERNEL): $(KERNEL_CONFIG) $(DEPMOD) $(DTC)
 				$(eval p := $(subst :,$(space),$(s))) \
 				; mv $$(find $$kernel_modules_dir -name $(word 1,$(p))) $$kernel_modules_dir/$(word 2,$(p))); \
 			modules=$$(find $$kernel_modules_dir -type f -name '*.ko'); \
-			($(call build-image-kernel-modules-legion,$$modules,$(KERNEL_MODULES_OUT),$(KERNEL_MODULE_MOUNTPOINT)/,$(KERNEL_DEPMOD_STAGING_DIR))); \
+			($(call build-image-kernel-modules-deluxe,$$modules,$(KERNEL_MODULES_OUT),$(KERNEL_MODULE_MOUNTPOINT)/,$(KERNEL_DEPMOD_STAGING_DIR))); \
 		fi
 
 .PHONY: kerneltags

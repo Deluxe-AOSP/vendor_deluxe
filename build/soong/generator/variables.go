@@ -6,12 +6,12 @@ import (
 	"android/soong/android"
 )
 
-func legionExpandVariables(ctx android.ModuleContext, in string) string {
-	legionVars := ctx.Config().VendorConfig("legionVarsPlugin")
+func deluxeExpandVariables(ctx android.ModuleContext, in string) string {
+	deluxeVars := ctx.Config().VendorConfig("deluxeVarsPlugin")
 
 	out, err := android.Expand(in, func(name string) (string, error) {
-		if legionVars.IsSet(name) {
-			return legionVars.String(name), nil
+		if deluxeVars.IsSet(name) {
+			return deluxeVars.String(name), nil
 		}
 		// This variable is not for us, restore what the original
 		// variable string will have looked like for an Expand

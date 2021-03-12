@@ -1,4 +1,4 @@
-# Copyright (C) 2020 The LegionOS Project
+# Copyright (C) 2020 The deluxeOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,14 +14,14 @@
 
 # Bootanimation
 ifeq ($(TARGET_BOOT_ANIMATION_RES),1080)
-     PRODUCT_COPY_FILES += vendor/legion/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+     PRODUCT_COPY_FILES += vendor/deluxe/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
 else ifeq ($(TARGET_BOOT_ANIMATION_RES),720)
-     PRODUCT_COPY_FILES += vendor/legion/bootanimation/720.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+     PRODUCT_COPY_FILES += vendor/deluxe/bootanimation/720.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
 else
     ifeq ($(TARGET_BOOT_ANIMATION_RES),)
-        $(warning "LegionOS: TARGET_BOOT_ANIMATION_RES is undefined, assuming 1080p")
+        $(warning "deluxeOS: TARGET_BOOT_ANIMATION_RES is undefined, assuming 1080p")
     else
-        $(warning "LegionOS: Current bootanimation res is not supported, forcing 1080p")
+        $(warning "deluxeOS: Current bootanimation res is not supported, forcing 1080p")
     endif
-    PRODUCT_COPY_FILES += vendor/legion/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+    PRODUCT_COPY_FILES += vendor/deluxe/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
 endif

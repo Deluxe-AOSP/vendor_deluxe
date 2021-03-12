@@ -1,10 +1,10 @@
-include vendor/legion/config/BoardConfigKernel.mk
+include vendor/deluxe/config/BoardConfigKernel.mk
 
 ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
-include vendor/legion/config/BoardConfigQcom.mk
+include vendor/deluxe/config/BoardConfigQcom.mk
 endif
 
-include vendor/legion/config/BoardConfigSoong.mk
+include vendor/deluxe/config/BoardConfigSoong.mk
 
 ifneq ($(TARGET_USES_PREBUILT_CAMERA_SERVICE), true)
 PRODUCT_SOONG_NAMESPACES += \

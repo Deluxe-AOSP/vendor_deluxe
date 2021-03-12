@@ -1,8 +1,8 @@
-# Inherit full common Legion stuff
-$(call inherit-product, vendor/legion/config/common_full.mk)
+# Inherit full common deluxe stuff
+$(call inherit-product, vendor/deluxe/config/common_full.mk)
 
 # Required packages
 PRODUCT_PACKAGES += \
     LatinIME
 
-$(call inherit-product, vendor/legion/config/telephony.mk)
+$(call inherit-product, vendor/deluxe/config/telephony.mk)

@@ -1,5 +1,5 @@
-# Inherit mini common Legion stuff
-$(call inherit-product, vendor/legion/config/common_mini.mk)
+# Inherit mini common deluxe stuff
+$(call inherit-product, vendor/deluxe/config/common_mini.mk)
 
 # Required packages
 PRODUCT_PACKAGES += \

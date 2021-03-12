@@ -1,5 +1,5 @@
 # Copyright (C) 2015 The CyanogenMod Project
-#           (C) 2019 LegionOS
+#           (C) 2019 deluxeOS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,4 +14,4 @@
 # limitations under the License.
 
 # Rules for QCOM targets
-include $(TOPDIR)vendor/legion/build/core/qcom_target.mk
+include $(TOPDIR)vendor/deluxe/build/core/qcom_target.mk

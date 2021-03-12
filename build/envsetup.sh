@@ -1,5 +1,5 @@
 # LegionOS functions that extend build/envsetup.sh
-function __print_legion_functions_help() {
+function __print_deluxe_functions_help() {
 cat <<EOF
 Additional LegionOS functions:
 - cout:            Changes directory to out.
@@ -50,7 +50,7 @@ function brunch()
 {
     breakfast $*
     if [ $? -eq 0 ]; then
-        mka legion
+        mka deluxe
     else
         echo "No such item in brunch menu. Try 'breakfast'"
         return 1
@@ -65,7 +65,7 @@ function breakfast()
     REVENGEOS_DEVICES_ONLY="true"
     unset LUNCH_MENU_CHOICES
     add_lunch_combo full-eng
-    for f in `/bin/ls vendor/legion/vendorsetup.sh 2> /dev/null`
+    for f in `/bin/ls vendor/deluxe/vendorsetup.sh 2> /dev/null`
         do
             echo "including $f"
             . $f
@@ -86,7 +86,7 @@ function breakfast()
                 variant="userdebug"
             fi
 
-            lunch legion_$target-$variant
+            lunch deluxe_$target-$variant
         fi
     fi
     return $?
@@ -620,7 +620,7 @@ function cmka() {
     if [ ! -z "$1" ]; then
         for i in "$@"; do
             case $i in
-                legion|otapackage|systemimage)
+                deluxe|otapackage|systemimage)
                     mka installclean
                     mka $i
                     ;;
@@ -690,7 +690,7 @@ function _adb_connected {
 
 function repopick() {
     T=$(gettop)
-    $T/vendor/legion/build/tools/repopick.py $@
+    $T/vendor/deluxe/build/tools/repopick.py $@
 }
 
 # check and set ccache path on envsetup
@@ -732,17 +732,17 @@ function push_update(){(
 
     echo "Uploading build to ODSN"
 
-    scp $out_dir/$zipvar ${uservar}@storage.osdn.net:/storage/groups/r/re/legion/$target_device
+    scp $out_dir/$zipvar ${uservar}@storage.osdn.net:/storage/groups/r/re/deluxe/$target_device
 
     echo "Generating json"
 
-    python3 $(pwd)/vendor/legion/build/tools/generatejson.py $target_device $zipvar $version $size $md5
+    python3 $(pwd)/vendor/deluxe/build/tools/generatejson.py $target_device $zipvar $version $size $md5
 
     if [ -d "$devices_dir" ]; then
         rm -rf $devices_dir
     fi
 
-    git clone https://github.com/LegionOS-Devices/official_devices.git $devices_dir
+    git clone https://github.com/deluxeOS-Devices/official_devices.git $devices_dir
 
     if [ -d "$devices_dir/$target_device" ]; then
         mv $(pwd)/device.json $devices_dir/$target_device
@@ -757,7 +757,7 @@ function push_update(){(
 
     cd $devices_dir
     git add $target_device && git commit -m "Update $target_device"
-    git push https://github.com/LegionOS-Devices/official_devices.git HEAD:11
+    git push https://github.com/deluxeOS-Devices/official_devices.git HEAD:11
     rm -rf $devices_dir
 )}
 

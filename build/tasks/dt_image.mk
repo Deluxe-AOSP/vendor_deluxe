@@ -8,7 +8,7 @@ INSTALLED_DTIMAGE_TARGET := $(PRODUCT_OUT)/dt.img
 ifeq ($(strip $(BOARD_KERNEL_PREBUILT_DT)),)
 
 ifeq ($(strip $(TARGET_CUSTOM_DTBTOOL)),)
-DTBTOOL_NAME := dtbToolLegion
+DTBTOOL_NAME := dtbToolDeluxe
 else
 DTBTOOL_NAME := $(TARGET_CUSTOM_DTBTOOL)
 endif
@@ -42,7 +42,7 @@ endif
 $(INSTALLED_DTIMAGE_TARGET): $(DTBTOOL) $(INSTALLED_KERNEL_TARGET)
 	$(build-dtimage-target)
 ifeq ($(strip $(BOARD_KERNEL_LZ4C_DT)),true)
-	prebuilts/tools-legion/${HOST_OS}-x86/bin/lz4 -9 < $@ > $(LZ4_DT_IMAGE)
+	prebuilts/tools-deluxe/${HOST_OS}-x86/bin/lz4 -9 < $@ > $(LZ4_DT_IMAGE)
 	$(hide) $(ACP) $(LZ4_DT_IMAGE) $@
 endif
 	@echo "Made DT image: $@"

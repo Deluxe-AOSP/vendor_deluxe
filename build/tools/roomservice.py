@@ -43,11 +43,11 @@ except ImportError:
 
 DEBUG = False
 
-custom_local_manifest = ".repo/local_manifests/legion.xml"
+custom_local_manifest = ".repo/local_manifests/deluxe.xml"
 custom_default_revision =  os.getenv('ROOMSERVICE_DEFAULT_BRANCH', '11')
-custom_dependencies = "legion.dependencies"
-org_manifest = "LegionOS-Devices"  # leave empty if org is provided in manifest
-org_display = "LegionOS-Devices"  # needed for displaying
+custom_dependencies = "deluxe.dependencies"
+org_manifest = "deluxeOS-Devices"  # leave empty if org is provided in manifest
+org_display = "deluxeOS-Devices"  # needed for displaying
 
 github_auth = None
 

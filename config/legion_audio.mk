@@ -1,10 +1,10 @@
 #
-# Legion Audio Files
+# deluxe Audio Files
 #
 
-ALARM_PATH := vendor/legion/prebuilt/common/media/audio/alarms
-NOTIFICATION_PATH := vendor/legion/prebuilt/common/media/audio/notifications
-RINGTONE_PATH := vendor/legion/prebuilt/common/media/audio/ringtones
+ALARM_PATH := vendor/deluxe/prebuilt/common/media/audio/alarms
+NOTIFICATION_PATH := vendor/deluxe/prebuilt/common/media/audio/notifications
+RINGTONE_PATH := vendor/deluxe/prebuilt/common/media/audio/ringtones
 
 # Alarms
 PRODUCT_COPY_FILES += \

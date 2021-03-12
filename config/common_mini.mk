@@ -1,4 +1,4 @@
-# Inherit mini common Legion stuff
-$(call inherit-product, vendor/legion/config/common_mobile.mk)
+# Inherit mini common deluxe stuff
+$(call inherit-product, vendor/deluxe/config/common_mobile.mk)
 
 PRODUCT_SIZE := mini

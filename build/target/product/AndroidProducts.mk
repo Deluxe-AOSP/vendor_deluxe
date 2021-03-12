@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2019 LegionOS
+# Copyright (C) 2019 deluxeOS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,13 +15,13 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/legion_arm.mk \
-    $(LOCAL_DIR)/legion_arm64.mk \
-    $(LOCAL_DIR)/legion_x86.mk \
-    $(LOCAL_DIR)/legion_x86_64.mk
+    $(LOCAL_DIR)/deluxe_arm.mk \
+    $(LOCAL_DIR)/deluxe_arm64.mk \
+    $(LOCAL_DIR)/deluxe_x86.mk \
+    $(LOCAL_DIR)/deluxe_x86_64.mk
 
 COMMON_LUNCH_CHOICES := \
-    legion_arm-userdebug \
-    legion_arm64-userdebug \
-    legion_x86-userdebug \
-    legion_x86_64-userdebug
+    deluxe_arm-userdebug \
+    deluxe_arm64-userdebug \
+    deluxe_x86-userdebug \
+    deluxe_x86_64-userdebug

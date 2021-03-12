@@ -4,15 +4,15 @@ ADDITIONAL_BUILD_PROPERTIES += \
     ro.build.fingerprint=$(BUILD_FINGERPRINT)
 endif
 
-# LegionOS System Version
+# deluxeOS System Version
 ADDITIONAL_BUILD_PROPERTIES += \
-    ro.legion.buildtype=$(LEGION_BUILD_TYPE) \
-    ro.legion.build.date=$(LEGION_BUILD_DATE) \
-    ro.legion.display.version=$(LEGION_DISPLAY_VERSION) \
-    ro.legion.android_version=$(ANDROID_VERSION) \
-    ro.legion.releasetype=$(LEGION_BUILD_TYPE) \
-    ro.legionversion=$(LEGIONVERSION) \
-    ro.legion.version=$(LEGION_VERSION) \
-    ro.modversion=$(LEGION_MOD_VERSION) \
-    ro.legion.ziptype=$(LEGION_BUILD_ZIP_TYPE) \
-    org.legion.fingerprint=$(LEGION_FINGERPRINT)
+    ro.deluxe.buildtype=$(DELUXE_BUILD_TYPE) \
+    ro.deluxe.build.date=$(DELUXE_BUILD_DATE) \
+    ro.deluxe.display.version=$(DELUXE_DISPLAY_VERSION) \
+    ro.deluxe.android_version=$(ANDROID_VERSION) \
+    ro.deluxe.releasetype=$(DELUXE_BUILD_TYPE) \
+    ro.deluxeversion=$(DELUXEVERSION) \
+    ro.deluxe.version=$(DELUXE_VERSION) \
+    ro.modversion=$(DELUXE_MOD_VERSION) \
+    ro.deluxe.ziptype=$(DELUXE_BUILD_ZIP_TYPE) \
+    org.deluxe.fingerprint=$(DELUXE_FINGERPRINT)
